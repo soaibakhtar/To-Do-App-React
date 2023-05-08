@@ -1,23 +1,27 @@
+import { useState } from 'react';
 import logo from './logo.svg';
-import './App.css';
+import "./styles.css"
 
 function App() {
+
+  const [todos,setTodos] = useState([]);
+  const [newText,setNewText] = useState("")
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='container'>
+        <h1>Schedule-Me</h1>
+        <form>
+          <input 
+            onChange={(event) => setNewText(event.target.value)}
+            className='input-box'
+            type='text'
+            placeholder='Write Anything...'
+            value={newText}
+            required
+          />
+        </form>
+      </div>
     </div>
   );
 }
